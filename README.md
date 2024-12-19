@@ -10,8 +10,9 @@ This project demonstrates a hot-reloading mechanism for game development in Go, 
 
 Before running this project, ensure you have the following installed:
 
--   **Go:** Make sure you have Go installed and configured correctly. This includes having a working Go environment with either `GOPATH` set up or Go modules enabled. (otherwise, `yaegi extract` will fail)
--   **Yaegi:** Install Yaegi using the following command:
+- **Go:** Make sure you have Go installed and configured correctly. This includes having a working Go environment with either `GOPATH` set up or Go modules enabled. (otherwise, `yaegi extract` will fail)
+- **Yaegi:** Install Yaegi using the following command:
+
     ```bash
     go install github.com/traefik/yaegi/cmd/yaegi@latest
     ```
@@ -20,30 +21,35 @@ Before running this project, ensure you have the following installed:
 
 To enable Yaegi to interact with Raylib, you need to extract the necessary symbols. Follow these steps:
 
-1.  Navigate to the `symbols` directory:
+1. Navigate to the `symbols` directory:
+
     ```bash
     cd symbols
     ```
-2.  Run the Yaegi extraction command:
+
+2. Run the Yaegi extraction command:
+
     ```bash
     yaegi extract github.com/gen2brain/raylib-go/raylib
     ```
 
 ## How to Run the Project
 
-1.  Clone the repository.
-2.  Navigate to the project directory.
-3.  Run the main application:
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run the main application:
+
     ```bash
     go run .
     ```
-4.  Modify the `src/game.go` file while the application is running. Changes will be applied dynamically.
+
+4. Modify the `src/game.go` file while the application is running. Changes will be applied dynamically.
 
 ## Project Structure
 
--   `main.go`: The main application file that sets up the Raylib window, the Yaegi interpreter, and the file watcher.
--   `src/game.go`: Contains the game logic that is dynamically reloaded.
--   `symbols/`: Contains the extracted Raylib symbols.
+- `main.go`: The main application file that sets up the Raylib window, the Yaegi interpreter, and the file watcher.
+- `src/game.go`: Contains the game logic that is dynamically reloaded.
+- `symbols/`: Contains the extracted Raylib symbols.
 
 ## Inspiration
 
