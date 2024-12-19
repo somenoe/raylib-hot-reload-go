@@ -10,7 +10,7 @@ This project demonstrates a hot-reloading mechanism for game development in Go, 
 
 Before running this project, ensure you have the following installed:
 
--   **Go:** Make sure you have Go installed and configured correctly.
+-   **Go:** Make sure you have Go installed and configured correctly. This includes having a working Go environment with either `GOPATH` set up or Go modules enabled. (otherwise, `yaegi extract` will fail)
 -   **Yaegi:** Install Yaegi using the following command:
     ```bash
     go install github.com/traefik/yaegi/cmd/yaegi@latest
