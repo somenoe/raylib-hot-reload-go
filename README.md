@@ -1,22 +1,50 @@
 # Raylib Hot Reload in Go
 
-This project demonstrates a proof of concept for implementing hot reload in Go using [Raylib](https://github.com/gen2brain/raylib-go) and [Yaegi](https://github.com/traefik/yaegi). It showcases how to dynamically reload code changes without restarting the application.
+A proof of concept of using hot reload with the raylib library in Go.
 
-## How to extract raylib symbols
+## Overview
 
-1. Install [Yaegi](https://github.com/traefik/yaegi)
+This project demonstrates a hot-reloading mechanism for game development in Go, leveraging [Raylib](https://github.com/gen2brain/raylib-go) for graphics and [Yaegi](https://github.com/traefik/yaegi) for dynamic code interpretation. This setup allows for rapid iteration by applying code changes without recompiling or restarting the application.
 
-	```bash
-	go install github.com/traefik/yaegi/cmd/yaegi@latest
-	```
+## Prerequisites
 
-2. Run the following command to extract the symbols of the `raylib-go/raylib` package.
+Before running this project, ensure you have the following installed:
 
-	```bash
-	cd symbols
-	yaegi extract github.com/gen2brain/raylib-go/raylib
-	```
+-   **Go:** Make sure you have Go installed and configured correctly.
+-   **Yaegi:** Install Yaegi using the following command:
+    ```bash
+    go install github.com/traefik/yaegi/cmd/yaegi@latest
+    ```
 
-## Inspired by
+## How to Extract Raylib Symbols
 
-[Gandalf-Le-Dev/ebitengine-yaegi-hotreload](https://github.com/Gandalf-Le-Dev/ebitengine-yaegi-hotreload)
+To enable Yaegi to interact with Raylib, you need to extract the necessary symbols. Follow these steps:
+
+1.  Navigate to the `symbols` directory:
+    ```bash
+    cd symbols
+    ```
+2.  Run the Yaegi extraction command:
+    ```bash
+    yaegi extract github.com/gen2brain/raylib-go/raylib
+    ```
+
+## How to Run the Project
+
+1.  Clone the repository.
+2.  Navigate to the project directory.
+3.  Run the main application:
+    ```bash
+    go run .
+    ```
+4.  Modify the `src/game.go` file while the application is running. Changes will be applied dynamically.
+
+## Project Structure
+
+-   `main.go`: The main application file that sets up the Raylib window, the Yaegi interpreter, and the file watcher.
+-   `src/game.go`: Contains the game logic that is dynamically reloaded.
+-   `symbols/`: Contains the extracted Raylib symbols.
+
+## Inspiration
+
+This project was inspired by [Gandalf-Le-Dev/ebitengine-yaegi-hotreload](https://github.com/Gandalf-Le-Dev/ebitengine-yaegi-hotreload), which demonstrates a similar hot-reloading approach for the Ebitengine game library.
