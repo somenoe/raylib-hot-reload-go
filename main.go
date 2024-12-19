@@ -1,6 +1,9 @@
 package main
 
-import r "github.com/gen2brain/raylib-go/raylib"
+import (
+	r "github.com/gen2brain/raylib-go/raylib"
+	"hot-reload-poc/src/game"
+)
 
 const (
 	screenWidth  = 800
@@ -16,6 +19,6 @@ func main() {
 	r.SetTargetFPS(targerFPS)
 
 	for !r.WindowShouldClose() {
-		draw()
+		game.Draw()
 	}
 }
